@@ -81,3 +81,21 @@ resource "openstack_images_image_v2" "archlinux" {
     os_for              = "pepole who like to break everything on every update"
   }
 }
+
+resource "openstack_images_image_v2" "kalilinux" {
+  name             = "Kali Linux"
+  local_file_path = "local_files/kalilinux.qcow2"
+  container_format = "bare"
+  disk_format      = "qcow2"
+  visibility       = "public"
+  protected        = false
+
+  properties = {
+    hw_scsi_model       = "virtio-scsi"
+    hw_disk_bus         = "scsi"
+    hw_qemu_guest_agent = "yes"
+    os_require_quiesce  = "yes"
+    os_type             = "linux"
+    os_distro           = "kali"
+  }
+}
