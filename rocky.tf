@@ -16,6 +16,8 @@ resource "openstack_images_image_v2" "rocky-9" {
     os_type             = "linux"
     os_distro           = "rocky"
     os_version          = "9"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 
@@ -37,6 +39,8 @@ resource "openstack_images_image_v2" "rocky-8" {
     os_type             = "linux"
     os_distro           = "rocky"
     os_version          = "8"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 

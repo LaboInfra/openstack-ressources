@@ -15,6 +15,8 @@ resource "openstack_images_image_v2" "debian-bookworm" {
     os_distro           = "debian"
     os_admin_user       = "debian"
     os_version          = "12"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 
@@ -35,6 +37,8 @@ resource "openstack_images_image_v2" "debian-bullseye" {
     os_distro           = "debian"
     os_admin_user       = "debian"
     os_version          = "11"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 
@@ -55,5 +59,7 @@ resource "openstack_images_image_v2" "debian-buster" {
     os_distro           = "debian"
     os_admin_user       = "debian"
     os_version          = "10"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }

@@ -16,6 +16,8 @@ resource "openstack_images_image_v2" "rancheros" {
     os_require_quiesce  = "yes"
     os_type             = "linux"
     os_distro           = "rancheros"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 
@@ -38,6 +40,8 @@ resource "openstack_images_image_v2" "cirros-0-6-3" {
     os_distro           = "cirros"
     os_admin_user       = "cirros"
     os_version          = "0.6.3"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 
@@ -59,6 +63,8 @@ resource "openstack_images_image_v2" "freebsd-14-2" {
     os_distro           = "freebsd"
     os_fs               = "ufs"
     os_version          = "14.2"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 
@@ -79,12 +85,14 @@ resource "openstack_images_image_v2" "archlinux" {
     os_type             = "linux"
     os_distro           = "archlinux"
     os_for              = "pepole who like to break everything on every update"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 
 resource "openstack_images_image_v2" "kalilinux" {
   name             = "Kali Linux"
-  local_file_path = "local_files/kalilinux.qcow2"
+  local_file_path  = "local_files/kalilinux.qcow2"
   container_format = "bare"
   disk_format      = "qcow2"
   visibility       = "public"
@@ -97,5 +105,7 @@ resource "openstack_images_image_v2" "kalilinux" {
     os_require_quiesce  = "yes"
     os_type             = "linux"
     os_distro           = "kali"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }

@@ -16,6 +16,8 @@ resource "openstack_images_image_v2" "ubuntu-focal" {
     os_type             = "linux"
     os_distro           = "ubuntu"
     os_version          = "20.04"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 
@@ -37,6 +39,8 @@ resource "openstack_images_image_v2" "ubuntu-jammy" {
     os_type             = "linux"
     os_distro           = "ubuntu"
     os_version          = "22.04"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 
@@ -58,5 +62,7 @@ resource "openstack_images_image_v2" "ubuntu-noble" {
     os_type             = "linux"
     os_distro           = "ubuntu"
     os_version          = "24.04"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }

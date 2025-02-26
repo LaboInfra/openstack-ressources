@@ -17,6 +17,8 @@ resource "openstack_images_image_v2" "fedora-41" {
     os_type             = "linux"
     os_distro           = "fedora"
     os_version          = "41"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
 
@@ -38,5 +40,7 @@ resource "openstack_images_image_v2" "fedora-39" {
     os_type             = "linux"
     os_distro           = "fedora"
     os_version          = "39"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
   }
 }
