@@ -5,6 +5,8 @@ resource "openstack_images_image_v2" "windows_10_pro" {
   disk_format      = "qcow2"
   visibility       = "public"
   protected        = false
+  min_disk_gb      = "20"
+  min_ram_mb       = "2048"
 
   properties = {
     hw_scsi_model       = "virtio-scsi"
@@ -25,6 +27,8 @@ resource "openstack_images_image_v2" "windows_server_2019_standard" {
   disk_format      = "qcow2"
   visibility       = "public"
   protected        = false
+  min_disk_gb      = "20"
+  min_ram_mb       = "2048"
 
   properties = {
     hw_scsi_model       = "virtio-scsi"

@@ -6,6 +6,9 @@ resource "openstack_images_image_v2" "debian-bookworm" {
   visibility       = "public"
   protected        = false
   web_download     = true
+  min_disk_gb      = 10
+  min_ram_mb       = 1024
+
   properties = {
     hw_scsi_model       = "virtio-scsi"
     hw_disk_bus         = "scsi"
@@ -28,6 +31,9 @@ resource "openstack_images_image_v2" "debian-bullseye" {
   visibility       = "public"
   protected        = false
   web_download     = true
+  min_disk_gb      = 10
+  min_ram_mb       = 1024
+
   properties = {
     hw_scsi_model       = "virtio-scsi"
     hw_disk_bus         = "scsi"
@@ -50,6 +56,9 @@ resource "openstack_images_image_v2" "debian-buster" {
   visibility       = "public"
   protected        = false
   web_download     = true
+  min_disk_gb      = 10
+  min_ram_mb       = 1024
+
   properties = {
     hw_scsi_model       = "virtio-scsi"
     hw_disk_bus         = "scsi"

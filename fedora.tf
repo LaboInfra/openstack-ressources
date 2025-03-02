@@ -7,6 +7,8 @@ resource "openstack_images_image_v2" "fedora-41" {
   visibility       = "public"
   protected        = false
   web_download     = true
+  min_disk_gb      = 10
+  min_ram_mb       = 1024
 
   properties = {
     hw_scsi_model       = "virtio-scsi"
@@ -30,6 +32,8 @@ resource "openstack_images_image_v2" "fedora-39" {
   visibility       = "public"
   protected        = false
   web_download     = true
+  min_disk_gb      = 10
+  min_ram_mb       = 1024
 
   properties = {
     hw_scsi_model       = "virtio-scsi"
