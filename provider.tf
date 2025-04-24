@@ -7,4 +7,12 @@ terraform {
   }
 }
 
-provider "openstack" {}
+provider "openstack" {
+  insecure = true
+}
+
+
+variable "images_cache" {
+  type    = string
+  default = "images/"
+}

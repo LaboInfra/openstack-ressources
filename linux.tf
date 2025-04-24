@@ -2,14 +2,14 @@
 
 resource "openstack_images_image_v2" "rancheros" {
   name             = "RancherOS"
-  image_source_url = "https://releases.rancher.com/os/latest/rancheros-openstack.img"
+  image_source_url = "http://releases.rancher.com/os/latest/rancheros-openstack.img"
   container_format = "bare"
   disk_format      = "qcow2"
   visibility       = "public"
   protected        = false
-  web_download     = true
   min_disk_gb      = 10
   min_ram_mb       = 1024
+  image_cache_path = var.images_cache
 
   properties = {
     hw_scsi_model       = "virtio-scsi"
@@ -25,14 +25,14 @@ resource "openstack_images_image_v2" "rancheros" {
 
 resource "openstack_images_image_v2" "cirros-0-6-3" {
   name             = "CirrOS 0.6.3"
-  image_source_url = "https://github.com/cirros-dev/cirros/releases/download/0.6.3/cirros-0.6.3-x86_64-disk.img"
+  image_source_url = "http://github.com/cirros-dev/cirros/releases/download/0.6.3/cirros-0.6.3-x86_64-disk.img"
   container_format = "bare"
   disk_format      = "qcow2"
   visibility       = "public"
   protected        = false
-  web_download     = true
   min_disk_gb      = 5
   min_ram_mb       = 512
+  image_cache_path = var.images_cache
 
   properties = {
     hw_scsi_model       = "virtio-scsi"
@@ -51,14 +51,14 @@ resource "openstack_images_image_v2" "cirros-0-6-3" {
 
 resource "openstack_images_image_v2" "freebsd-14-2" {
   name             = "FreeBSD 14.2"
-  image_source_url = "https://object-storage.public.mtl1.vexxhost.net/swift/v1/1dbafeefbd4f4c80864414a441e72dd2/bsd-cloud-image.org/images/freebsd/14.2/2024-12-08/ufs/freebsd-14.2-ufs-2024-12-08.qcow2"
+  image_source_url = "http://object-storage.public.mtl1.vexxhost.net/swift/v1/1dbafeefbd4f4c80864414a441e72dd2/bsd-cloud-image.org/images/freebsd/14.2/2024-12-08/ufs/freebsd-14.2-ufs-2024-12-08.qcow2"
   container_format = "bare"
   disk_format      = "qcow2"
   visibility       = "public"
   protected        = false
-  web_download     = true
   min_disk_gb      = 10
   min_ram_mb       = 1024
+  image_cache_path = var.images_cache
 
   properties = {
     hw_scsi_model       = "virtio-scsi"
@@ -76,14 +76,14 @@ resource "openstack_images_image_v2" "freebsd-14-2" {
 
 resource "openstack_images_image_v2" "archlinux" {
   name             = "Arch Linux"
-  image_source_url = "https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-cloudimg.qcow2"
+  image_source_url = "http://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-cloudimg.qcow2"
   container_format = "bare"
   disk_format      = "qcow2"
   visibility       = "public"
   protected        = false
-  web_download     = true
   min_disk_gb      = 10
   min_ram_mb       = 1024
+  image_cache_path = var.images_cache
 
   properties = {
     hw_scsi_model       = "virtio-scsi"
@@ -98,24 +98,3 @@ resource "openstack_images_image_v2" "archlinux" {
   }
 }
 
-resource "openstack_images_image_v2" "kalilinux" {
-  name             = "Kali Linux"
-  local_file_path  = "local_files/kalilinux.qcow2"
-  container_format = "bare"
-  disk_format      = "qcow2"
-  visibility       = "public"
-  protected        = false
-  min_disk_gb      = 10
-  min_ram_mb       = 1024
-
-  properties = {
-    hw_scsi_model       = "virtio-scsi"
-    hw_disk_bus         = "scsi"
-    hw_qemu_guest_agent = "yes"
-    os_require_quiesce  = "yes"
-    os_type             = "linux"
-    os_distro           = "kali"
-    hw_rescue_bus       = "scsi"
-    hw_rescue_device    = "disk"
-  }
-}
