@@ -1,8 +1,8 @@
 resource "openstack_images_image_v2" "debian-bookworm" {
   name             = "Debian 12 Bookworm"
-  image_source_url = "http://cdimage.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2"
+  image_source_url = "http://cdimage.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.raw"
   container_format = "bare"
-  disk_format      = "qcow2"
+  disk_format      = "raw"
   visibility       = "public"
   protected        = false
   min_disk_gb      = 10
@@ -25,9 +25,9 @@ resource "openstack_images_image_v2" "debian-bookworm" {
 
 resource "openstack_images_image_v2" "debian-bullseye" {
   name             = "Debian 11 Bullseye"
-  image_source_url = "http://cloud.debian.org/images/cloud/bullseye/latest/debian-11-generic-amd64.qcow2"
+  image_source_url = "http://cloud.debian.org/images/cloud/bullseye/latest/debian-11-generic-amd64.raw"
   container_format = "bare"
-  disk_format      = "qcow2"
+  disk_format      = "raw"
   visibility       = "public"
   protected        = false
   min_disk_gb      = 10

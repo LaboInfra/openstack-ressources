@@ -3,3 +3,4 @@
 .terraform.*
 local_files/
 .DS_Store
+images/
