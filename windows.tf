@@ -173,3 +173,28 @@ resource "openstack_images_image_v2" "windows_10_pro" {
   }
 }
 
+resource "openstack_images_image_v2" "windows_11_pro" {
+  name             = "Windows 11 Pro"
+  image_source_url = "https://s3.netbytes.space/cloud-images/windows_11_pro.raw"
+  container_format = "bare"
+  disk_format      = "raw"
+  visibility       = "public"
+  protected        = false
+  min_disk_gb      = 25
+  min_ram_mb       = 4086
+  image_cache_path = var.images_cache
+
+  properties = {
+    hw_scsi_model       = "virtio-scsi"
+    hw_disk_bus         = "scsi"
+    hw_qemu_guest_agent = "yes"
+    os_require_quiesce  = "yes"
+    os_admin_user       = "admin"
+    os_type             = "windows"
+    os_distro           = "windows"
+    os_version          = "11_pro"
+    hw_rescue_bus       = "scsi"
+    hw_rescue_device    = "disk"
+  }
+}
+
